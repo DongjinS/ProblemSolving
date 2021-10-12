@@ -8,6 +8,811 @@
 import Foundation
 
 // MARK: - 동진
+// MARK: - Beckjoon
+// MARK: #2775
+//let k = 2
+//let h = 3
+//typealias apartFloor = [Int]
+//var apart:[apartFloor] = []
+//apart = [[2,3,4],[1,2,3]]
+//print(apart)
+//print(apart[1][0])
+//apart.append([5,6,7])
+//print(apart)
+//
+
+// MARK: 문자열 1번, 아스키 코드 #11654
+/*
+let r = readLine()!
+var s = Character(r)
+print(Int(s.asciiValue!))
+*/
+
+//백준, while eof 받아보기 #10951
+/*
+while let nums = readLine(){
+    let arr = nums.split(separator: " ")
+    if arr.count == 2 {
+        //print(arr.count)
+        print(Int(arr[0])!+Int(arr[1])!)
+    }
+    else{
+        break
+    }
+}
+*/
+
+//MARK: 문자열 2번  #11720
+/*
+let n = Int(readLine()!)!
+let n_2 = readLine()!
+var arr = Array(n_2)
+var total = 0
+for i in 0..<n{
+    total += Int(String(arr[i]))!
+}
+print(total)
+*/
+
+//MARK: 문자열 3번  #10809
+/*
+let alphabet = "abcdefghijklmnopqrstuvwxyz"
+let arr = Array(alphabet)
+//print(arr, arr.count)
+var chk:[Int] = []
+
+let s = readLine()!
+let s_arr = Array(s)
+//print(s_arr)
+
+for i in 0..<arr.count{
+    var c = -1
+    for r in 0..<s_arr.count{
+        if arr[i] == s_arr[r]{
+            c = r
+            break
+        }else{
+            c = -1
+        }
+    }
+    chk.append(c)
+    print(chk[i], terminator: " ")
+}
+*/
+
+//MARK: 문자열 4번 #2675 문자열 반복
+/*
+let t = Int(readLine()!)!
+var arr_in:[String] = []
+
+for i in 0..<t{
+    arr_in.append(readLine()!)
+}
+
+//print(arr_in)
+//
+//var a = Int(String(arr_in[0].first!))!
+//print(a, type(of: a))
+
+for i in 0..<t{
+    let r = Int(String(arr_in[i].first!))!
+    var q = Array(arr_in[i])
+    q.remove(at: 0)
+    //print("q is", q)
+    for a in q{
+        if a != " "{
+            for b in 0..<r{
+                print("\(a)", terminator: "")
+            }
+        }
+    }
+    print("")
+}
+*/
+
+//MARK: 문자열 5번 단어공부 #1157
+/*
+let word = readLine()!
+let bigalpha = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+let smallalpha = Array("abcdefghijklmnopqrstuvwxyz")
+var chk:[Int] = []
+for i in bigalpha{
+    chk.append(0)
+}
+for i in word{
+    for r in 0..<bigalpha.count{
+        if i == bigalpha[r] || i == smallalpha[r]{
+            chk[r] += 1
+        }
+    }
+}
+//print(bigalpha)
+//print(smallalpha)
+//print(chk)
+
+let chk2 = chk.sorted(by:>)
+if chk2[0] != chk2[1]{
+    let p = chk.index(of:chk.max()!)
+    print(bigalpha[p!])
+}
+else{
+    print("?")
+}
+*/
+
+//MARK: 문자열 6번 단어의 개수 #1152
+/*
+let str = readLine()!
+let arr = str.split(separator: " ")
+print(arr.count)
+*/
+
+//MARK: 문자열 7번 상수 #2908
+/*
+let in_num2 = readLine()!
+let in_arr = in_num2.split(separator: " ")
+var new_num:[Int] = []
+//print(type(of:num1), type(of:num2))
+
+for i in 0..<in_arr.count{
+    var three = 0
+    var one = 0
+    var two = 0
+    three = (Int(in_arr[i])!%100)%10
+    one = Int(in_arr[i])!/100
+    two = (Int(in_arr[i])!%100)/10
+    //print("1,2,3", one, two, three)
+    let new = (three*100) + (two*10) + one
+    new_num.append(new)
+}
+if new_num[0]>new_num[1]{
+    print(new_num[0])
+}
+else{
+    print(new_num[1])
+
+}
+*/
+//MARK: 문자열 8번 다이얼 #5622
+/*
+let call = readLine()!
+var t:Int = 0
+
+for i in call{
+
+    if i == "A" || i == "B" || i == "C"{
+        t+=3
+    }else if i == "D" || i == "E" || i == "F"{
+        t+=4
+    }else if i == "G" || i == "H" || i == "I"{
+        t+=5
+    }else if i == "J" || i == "K" || i == "L"{
+        t+=6
+    }else if i == "M" || i == "N" || i == "O"{
+        t+=7
+    }else if i == "P" || i == "Q" || i == "R" || i == "S"{
+        t+=8
+    }else if i == "T" || i == "U" || i == "V"{
+        t+=9
+    }else if i == "W" || i == "X" || i == "Y" || i == "Z"{
+        t+=10
+    }
+}
+print(t)
+*/
+
+//MARK: 문자열 9번 크로아티아 알파벳 #2941
+//이것도 조졌다,, 하
+//1st try
+/*
+let word = readLine()!
+let arr_word = Array(word)
+
+print(arr_word)
+
+var chk = 0
+for i in 0..<arr_word.count-1{
+    print(arr_word[i])
+    if arr_word[i] == "c" || arr_word[i] == "d" || arr_word[i] == "l" || arr_word[i] == "n" || arr_word[i] == "s" || arr_word[i] == "z"{
+        print("뒤에 글자 확인하겠습니다.")
+        if arr_word[(arr_word.count-1)-(arr_word.count-2-i)] == "=" || arr_word[(arr_word.count-1)-(arr_word.count-2-i)] == "-" || arr_word[(arr_word.count-1)-(arr_word.count-2-i)] == "j"{
+            print(arr_word[(arr_word.count-1)-(arr_word.count-2-i)], "확인, 글자수 늘이지 않겠습니다")
+            chk += 0
+        }
+        else if arr_word[(arr_word.count-1)-(arr_word.count-2-i)] == "z"{
+            print(arr_word[(arr_word.count-1)-(arr_word.count-2-i)], "뒤에 뒤에 글자 확인하겠습니다")
+            if arr_word[(arr_word.count-1)-(arr_word.count-2-i)+1] == "="{
+                print(arr_word[(arr_word.count-1)-(arr_word.count-2-i)+1], "확인, 글자수 늘이지 않겠습니다")
+                chk += 0
+            }
+            else{
+                chk += 1
+            }
+        }
+        else{
+            chk += 1
+        }
+    }else{
+        chk += 1
+    }
+    print("chk 변화: \(chk)")
+}
+print("최종 출력: ",chk+1)
+*/
+//새로운 방법 이것도 틀렸대,, 왜!!!!!!
+// 2nd try
+//var chk = 0
+//for i in 0..<arr_word.count{
+//    if arr_word[i] == "=" || arr_word[i] == "-" { //c=, c- , dz=, s= ,z= 뒤에 - or = 나오면 0 -- lj,nj 남음
+//        chk += 0
+//    }else if i>0 && arr_word[i] == "j" && arr_word[i-1] == "l"{
+//        chk += 0
+//    }else if i>0 && arr_word[i] == "j" && arr_word[i-1] == "n"{
+//        chk += 0
+//    }else{
+//        chk+=1
+//    }
+//}
+//print(chk)
+
+//3rd try
+//let word = readLine()!
+//let arr_word = Array(word)
+//// 배열안의 특수문자 다 지우고 j 전에 l n 오면 안세고, z 전에 d 오면 안세는걸로 바꾸자 - 이래도 틀려? 특수문자가 따로 들어왔을때도 문자로 인식해야되나봄,,
+//var no_Sword:[String]=[]
+//for i in arr_word{
+//    if i == "="{
+//
+//    }else if i == "-"{
+//
+//    }else{
+//        no_Sword.append(String(i))
+//    }
+//}
+//print(no_Sword)
+//var cnt_word = 0
+//for i in 0..<no_Sword.count{
+//    var cnt = 0
+//    if i>0 && no_Sword[i] == "j" && no_Sword[i-1] == "l"{
+//            cnt += 0
+//    }else if i>0 && no_Sword[i] == "j" && no_Sword[i-1] == "n"{
+//        cnt+=0
+//    }else if i>0 && no_Sword[i] == "z" && no_Sword[i-1] == "d"{
+//        cnt+=0
+//    }else{
+//        cnt+=1
+//    }
+//    cnt_word+=cnt
+//}
+//print(cnt_word)
+
+//č    c=
+//ć    c-
+//dž    dz=
+//đ    d-
+//lj    lj
+//nj    nj
+//š    s=
+//ž    z=
+
+//그럼 시작점을 잡고 뒤에가 크로아티아 문자랑 연속으로 맞으면 안세는걸로,,?
+//4th try -잘되는데,,
+/*
+let word = readLine()!
+var arr_wrd = Array(word)
+var chk = 0
+var  i = 0
+while i < arr_wrd.count{
+    //c, d,l,n,s,z 로 시작하는것들 찾기
+    //print("지금 확인하는 글자=\(i)번째 글자 : \(arr_wrd[i])")
+    if arr_wrd[i] == "c"{
+        if i+1<arr_wrd.count && arr_wrd[i+1] == "=" || arr_wrd[i+1] == "-" {
+            i += 1
+        }
+    }else if arr_wrd[i] == "d"{
+        if  i+1<arr_wrd.count && arr_wrd[i+1] == "-"{
+            i += 1
+        }
+        else if i+2<arr_wrd.count && arr_wrd[i+1] == "z" && arr_wrd[i+2] == "="{
+            i += 2
+        }
+    }else if arr_wrd[i] == "l"{
+        if i+1<arr_wrd.count && arr_wrd[i+1] == "j"{
+            i += 1
+        }
+    }else if arr_wrd[i] == "n"{
+        if i+1<arr_wrd.count && arr_wrd[i+1] == "j"{
+            i += 1
+        }
+    }else if arr_wrd[i] == "s"{
+        if i+1<arr_wrd.count && arr_wrd[i+1] == "="{
+            i += 1
+        }
+    }else if arr_wrd[i] == "z"{
+        if i+1<arr_wrd.count && arr_wrd[i+1] == "="{
+            i += 1
+        }
+    }
+    i += 1
+    //print("\(i)번째 글자로 이동합니다")
+    chk += 1
+    //print("현재 chk : \(chk)")
+}
+
+print(chk)
+*/
+//replacingOccurrences 함수 이용
+//[출처] [백준/Swift] 2941번 풀이 - 크로아티아 알파벳|작성자 권범
+/*
+let croatian = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
+var line = readLine() ?? ""
+
+for i in 0 ..< croatian.count {
+    line = line.replacingOccurrences(of: croatian[i], with: "*")
+}
+
+print(line.count)
+*/
+
+
+//MARK: 문자열 10번 #1316
+//반례 못찾겠음,, 왜 안돼지
+/*
+let t = Int(readLine()!)!
+var arr:[String]=[]
+for i in 0..<t{
+    arr.append(readLine()!)
+}
+var groupwd = 0
+//print(arr)
+for i in 0..<arr.count{
+    let temp = Array(arr[i])
+    //print("지금 \(temp) 중")
+    var chk = 0
+    //print("지금 돌아가는 \(i)번째 단어(temp): \(temp)")
+    for r in 0..<temp.count{
+        let a = temp[r]
+        //print("지금 돌아가는 글자(a): \(a)")
+        //print("지금a: \(a)")
+        if temp.lastIndex(of: a) != temp.firstIndex(of: a){
+            if temp[temp.lastIndex(of: a)!-1] != a || temp[temp.firstIndex(of: a)!+1] != a{
+                chk = 0
+                //print("여가서 멈춥니다. 그룹단어 아닙니다.")
+                break
+            }
+            else{
+                chk = 1
+            }
+        }
+        else{
+            chk = 1
+        }
+    }
+    if chk == 1{
+        groupwd+=1
+    }
+}
+print(groupwd)
+*/
+//2nd try - 단어 마다 글자 개수 체크하고(dictionaty 저장), 후 글자의 연속됨을 체크해서 연속되는 수가 글자수보다 적으면 그룹단어 아님 - correct!!!
+//let t = Int(readLine()!)!
+//var arr:[String]=[]
+//for i in 0..<t{
+//    arr.append(readLine()!)
+//}
+//// 단어 마다 글자수 체크 후 연속됨 확인
+//var groupwrd_cnt = 0
+//for i in 0..<arr.count{
+//    var temp = Array(arr[i])
+//    var char_cn = [Character:Int]()
+//    for r in temp{
+//        if char_cn[r] != nil{
+//            char_cn[r]! += 1
+//        }else{
+//            char_cn[r] = 1
+//        }
+//    }
+//    var chk = false // 그룹단어 check - false: 그룹단어 아님, true: group word
+//    for (k,v) in char_cn{
+//        if v > 1{
+//            var n = temp.firstIndex(of: (k))
+//            var cnt = 0
+//            for r in n!..<temp.count{//연속 횟수 체크
+//                if k == temp[r]{
+//                    cnt += 1
+//                }
+//                else{
+//                    break
+//                }
+//            }
+//            if cnt != v{
+//                chk = false
+//                //print("not a group word, 현재글자: \(k), 글자 수: \(v), 반복횟수: \(cnt)")
+//                break
+//            }else{
+//                chk = true
+//            }
+//        }else{
+//            chk = true
+//        }
+//    }
+//    if chk {
+//        groupwrd_cnt += 1
+//    }
+//}
+//print(groupwrd_cnt)
+
+//MARK: - 백준 기본 수학1
+
+//MARK: 1번 손익 분기점 #1712
+// correct!
+/// A + B * n = C * n, n =  ?
+/*
+let line = readLine()!
+let line_arr = line.split(separator: " ")
+let a = Int(String(line_arr[0]))!
+let b = Int(String(line_arr[1]))!
+let c = Int(String(line_arr[2]))!
+var n:Int
+if b >= c {
+    n = -1
+}else{
+    n = a/(c-b)
+    n += 1
+}
+print(n)
+*/
+
+//MARK: 2번 벌집 #2292
+//correct but 더 짧은 방법있을거 같은뎅,,
+/*
+let n = Int(readLine()!)!
+var cell = 1
+var chknum = 1
+while chknum < n {
+    chknum += 6*cell
+    cell += 1
+    //print("cell: \(cell), chknum: \(chknum)")
+}
+//print("-------- 최종 ----------\n cell: \(cell), chknum: \(chknum)")
+print(cell)
+*/
+
+//MARK: 3번 분수찾기 #1193
+//a/b (a,b) - 홀수번째면 a부터시작 a=반복횟수 b = 1, a-=1 b+=1 b = 반복횟수 되면 다음 반복||짝수번째면 b = 반복횟수 a = 1, b-=1 a+=1 a = 반복횟수 되면 다음 반복
+/*
+let In = Int(readLine()!)!
+var a = 1 //분모 b/a
+var b = 1 //분모
+var r = 1 // 반복횟수 = 몇번째 줄인지
+var i = 0
+while i < In-1{
+    //print("r: \(r)")
+    if r>1 && r%2 == 0{
+        //print("\(a)/\(b)")
+        a+=1
+        b-=1
+        i+=1
+        //print("\(a)/\(b)")
+        if a == r  && i < In-1{
+            r+=1
+            a = r
+            b = 1
+            i+=1
+            //print("보내는 값: \(a)/\(b)")
+        }
+    }else if r>1 && r%2 != 0{
+        //print("\(a)/\(b)")
+        a-=1
+        b+=1
+        i+=1
+        //print("\(a)/\(b)")
+        if b == r && i < In-1{
+            r+=1
+            b = r
+            a = 1
+            i+=1
+            //print("보내는 값: \(a)/\(b)")
+        }
+    }
+    else if r == 1{
+        //print("\(a)/\(b)")
+        r+=1
+        b = r
+        i+=1
+        //print("보내는 값: \(a)/\(b)")
+    }
+}
+print("\(a)/\(b)")
+*/
+//되긴되는데 뭔가 이상, && i < In-1 이거 안넣었을때도 3뺴고 다됨;;
+
+//MARK: 4번 #2869 달팽이는 올라가고 싶다
+/*
+let readin = readLine()!
+var arr = readin.split(separator: " ")
+var a = Double(arr[0])!
+var b = Double(arr[1])!
+var v = Double(arr[2])!
+var day = 0
+//print("a:\(a),b:\(b),v:\(v)")
+if a < v {
+    day = Int((v - a)/(a-b) + 1)
+    if (v - a)/(a-b) > Double(Int((v - a)/(a-b))){
+        day += 1
+    }
+}else if a >= v {
+    day = 1
+}
+print(day)
+*/
+//var h = 0
+//while h < v{
+//    h += a
+//    if h < v{
+//        h -= b
+//    }
+//    day += 1
+//}->시간 초과
+//큰수가 들어가면 너무 오래 걸림 짧게 구하는 방법찾기! day = (v - a)/(a-b)+1
+// 1 day = v - a + b, day = v/(a-b)
+/*
+ if a - b < v - a {
+     day = (v - a)/(a-b) + 1
+ }else if a - b > v - a {
+     day = 2
+ }
+*/
+
+//MARK: 5번 #10250 ACM호텔
+//h w n 입력, h - 층, w - 넓이, n 번째 손님, t = 테스트 갯수
+//let t = Int(readLine()!)!
+//var answer:[Int] = []
+//for i in 0..<t{
+//    let readIn = readLine()!
+//    let hwn = readIn.split(separator: " ")
+//    let h = Int(hwn[0])!
+//    let w = Int(hwn[1])!
+//    let n = Int(hwn[2])!
+//    var raw = 0 // 층, raw
+//    var column = 0  // 호수
+//    if Double(n)/Double(h) > Double(n/h){// 1호 - 0+1 or x호 - n/h + 1
+//        column = n/h + 1
+//        raw = n%h
+//        //print("column = n/h + 1 = \(column) , raw = n%h = \(raw)")
+//    }else if Double(n)/Double(h) == Double(n/h){
+//        column = n/h
+//        raw = h
+//        //print("column = n/h = \(column) , raw = n%h = \(raw)")
+//    }
+//    answer.append(raw*100+column)
+//}
+//for i in answer{
+//    print(i)
+//}
+
+//뭐가 틀린거야.. 1 5 4 -> 5;;ㅋㅋ n-h = 3 > h / 1 5 2 -> n - h = 1 <= h, 5 1 5,
+/*if n>h{
+ n/h - 호수 결정
+ n%h - 층 결정 * 100
+}else{ 첫번째 라인 벗어나지 않을때
+ h-n - 층 결정 , 호수는 무조건 1호
+}
+층의 배수+1 이 호수 -> 3층인데 7번째면 7/3 = 2.xxx -> XX3호 -> Double(n/h)>....
+ ---- 호수를 먼저 구하고 층을 구하자 ->번째-(호수-1*층수) = 나머지 = 층
+*/
+
+//MARK: 6번 #2775 부녀회장이 될테야
+//func readIn(test:Int)->[Int]{
+//    var arr:[Int]=[]
+//    arr.append(Int(readLine()!)!)
+//    arr.append(Int(readLine()!)!)
+//    return arr
+//}
+//
+//func apartSet(k: Int, h: Int)->[[Int]]{
+//    typealias apartFloor = [Int]
+//    var apart:[apartFloor] = []
+//    // k = 층 , h = 호, n = 사는사람수
+//
+//    for i in 0...k{// apart[0] - 층
+//        apart.append([i])
+//        for x in 1...h{
+//            apart[i].append(x)
+//        }
+//    }
+//    //print(apart)
+//    return apart
+//}
+//func livePeople(fSet:[[Int]])->Int{
+//    typealias people = [Int]
+//    var peopleNum:[people] = []
+//    var n = 0
+//
+//    for i in 0..<fSet.count{//0층부터..
+//        peopleNum.append([i])
+//
+//        for x in 1..<fSet[i].count{
+//            if i==0{
+//                n=x
+//                peopleNum[i].append(n)
+//            }else{
+//                n = 0
+//                for z in 0..<peopleNum[i-1].count{
+//                    if z>0{
+//                        n+=peopleNum[i-1][z]
+//                    }
+//                    if z > peopleNum[i].count-1{
+//                        break
+//                    }
+//                }
+//                peopleNum[i].append(n)
+//            }
+//        }
+//    }
+//    //print("pepleNum: \(peopleNum)")
+//    return n
+//}
+//
+//
+//let t = Int(readLine()!)!
+//var numArr:[Int]=[]
+//for i in 0..<t{
+//    let arr = readIn(test:t)
+//    let k = arr[0]
+//    let h = arr[1]
+//    let floorSet = apartSet(k: k, h: h)
+//    //print(floorSet)
+//    numArr.append(livePeople(fSet: floorSet))
+//}
+//for i in numArr{
+//    print(i)
+//}
+//런타임에러 - 해결 -> 예전에 런타임 에러난것도 코드 문제일 수도!
+
+//MARK: 7번 #2839 설탕 배달
+//영민이 알고리즘 - 5 나누었을 때 나머지에 따라 3키로 들어가는 갯수가 달라진다.
+//func sugarNum(kg: Int)->Int{
+//    let n = kg
+//    var x = 0
+//    var y = 0
+//    var s = 0
+//    var answer = -1
+//    if n>5 && n != 7{
+//        s = n%5
+//    }
+//    switch s {
+//    case 1:
+//        y = 2
+//        x = (n-3*y)/5
+//        break
+//    case 2:
+//        y = 4
+//        x = (n-3*y)/5
+//        break
+//    case 4:
+//        y = 3
+//        x = (n-3*y)/5
+//        break
+//    default:
+//        x=n/5
+//        y=(n%5)/3
+//    }
+//        
+//    if 5*x+3*y == n && n != 0{
+//        answer = x + y
+//    }
+//    return answer
+//}
+//
+//
+//let n = Int(readLine()!)!
+//print(sugarNum(kg: n))
+
+//MARK: 8번 #10757 큰 수 A+B
+//실패
+//let str = (readLine()!)
+//print(str)
+//let arr = str.components(separatedBy: " ")
+//print(arr)
+////print(Int(arr[1])) 범위넘어가면 아예 변환이 안되고 nil 들어감
+//var n = 0
+//var arr1:[String] = []
+//var arr2:[String] = []
+//
+//if arr[0].count>arr[1].count{
+//    n = arr[1].count
+//    //arr1 = Array(arrayLiteral: arr[1])//이러면 숫자 하나씩 잘리나? - 응 안잘려~
+//    //arr2 = Array(arrayLiteral: arr[0])
+//    for i in arr[1].reversed(){//거꾸로 넣어놓고 마지막에 reverse해서 출력
+//        arr1.append(String(i))
+//    }
+//    for i in arr[0].reversed(){//거꾸로 넣어놓고 마지막에 reverse해서 출력
+//        arr2.append(String(i))
+//    }
+//}else{
+//    n = arr[0].count
+////    arr1 = Array(arrayLiteral: arr[0])
+////    arr2 = Array(arrayLiteral: arr[1])
+//    for i in arr[0].reversed(){//거꾸로 넣어놓고 마지막에 reverse해서 출력
+//        arr1.append(String(i))
+//    }
+//    for i in arr[1].reversed(){//거꾸로 넣어놓고 마지막에 reverse해서 출력
+//        arr2.append(String(i))
+//    }
+//}
+//print("작은 수arr1:\t\(arr1),\n큰 수arr2:\t\(arr2)")
+//var new:[String] = []
+//var sum1 = 0
+//var sum2 = 0
+//for i in 0..<n{//int 저장 범위 넘어가면 아예 계산이 안되니까 진짜 손으로 덧셈이나 곱셈하는 방식으로 char 를 더하는 방식을 구현해보자
+//    sum1 = Int(arr1[i])!+Int(arr2[i])!
+//    if sum1 > 10{//합이 10 넘을때
+//        sum2 = 1
+//        sum1 = sum1%10
+//        if sum1 != 0{ // 합이 10보다 크고 10이 아닐때
+//            if new.last != nil && new.last != "9"{// 합이 10보다 크고 10이 아닐때 일의자리 계산에서 10이 아닐때
+//                sum1 += Int(new.last!)!
+//                new.popLast()
+//                new.append(String(sum1))
+//                new.append(String(sum2))
+//            }else if new.last != nil && new.last == "9"{// 합이 10보다 크고 10이 아닐때 일의자리 계산에서 10이 될때
+//                new.append(String(sum2+1))
+//            }else{//처음 들어갈때 - 값이 들어있지 않을때
+//                new.append(String(sum1))
+//                new.append(String(sum2))
+//            }
+//        }else{//합이 10보다 크고 10일때
+//            if new.last != nil{// 앞에 1이 들어가고 뒤에는 0이 들어가니 뒤에는 어차피 뒤에는 넣을필요없음
+//                new.append(String(sum2))
+//            }else{//값이 없이 들어갈때 10이 들어감 - 0넣고 1넣고
+//                new.append("0")
+//                new.append(String(sum2))
+//            }
+//        }
+//    }else{// 합이 10보다 작을때
+//        if new.last != nil{// 값이 이미 들어있을때
+//            sum1 += Int(new.last!)!
+//            if sum1 != 10{//합이 10보다 작고 값이 이미 들어있어서 값이 들어갔는데 합쳐서 10이 되지 않을때
+//                new.popLast()
+//                new.append(String(sum1))
+//            }else{//합이 10보다 작고 값이 이미 들어있어서 값이 들어갔는데 합쳐서 10이 될때
+//                sum2 = 1
+//                sum1 = sum1%10
+//                new.popLast()
+//                new.append(String(sum1))
+//                new.append(String(sum2))
+//            }
+//
+//        }else{//값이 들어있지 않을때
+//            new.append(String(sum1))
+//        }
+//    }
+//    // 숫자 갯수 다를 때 남는 숫자 그대로 내려서 추가해주는거 해줘야함
+//    if i == n-1 && i != arr2.count-1{//숫자 갯수 다를 때
+//        //print("here1 !_!, i: \(i)")
+//        for r in i+1..<arr2.count{
+//            //print("here2 !_!")
+//            sum1 = Int(arr2[r])!
+//            //print("here2 sum1: \(sum1)")
+//            new.append(String(sum1))
+//        }
+//    }
+//    sum1 = 0
+//    sum2 = 0
+//}
+//
+//for i in new.reversed(){
+//    print(i, terminator: "")
+//}
+//print()
+//
+//let arr123:[String] = []
+//print(arr123.last)
+
+
+
+// MARK: - Programmers
 
 // MARK: ??
 //var a:Int
