@@ -19,6 +19,12 @@ for i in numbers:
         cnt_primes+=1
 print(cnt_primes)
 '''
+''' 
+짝수의 특성을 이용 - 짝수 N을 2로 나눠서 합해서 N이되는 두개의 값(서로 같은 값,lt,rt)을 소수 판별 을 통해 소수면 break
+                아니면 lt = lt - 1, rt = rt + 1 을 통해서 (더해서 N이 되는 특성을 활용) 
+                lt,rt 모두 소수가 될때 까지 -1,+1 해준다.
+    -- 지금 내 방식은 N 이하의 소수를 먼저 다 찾고 비교를 하니까 너무 오래걸림
+'''
 # N = primeNumber + primeNumber
 def search_prime(i: int) -> int: 
     if i > 2 :
