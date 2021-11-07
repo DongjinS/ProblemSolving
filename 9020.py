@@ -18,42 +18,66 @@
 
 # N = int(input())
 
-from itertools import combinations
+# from itertools import combinations
 
-def goldbach(num) :
-    prime_list = []
-    for i in range(2, num-1):
-        if is_prime(i) :
-            if i+i == num :
-                prime_list.append(i)
-                prime_list.append(i)    
-            else :
-                prime_list.append(i)
-    num_list = list(combinations(prime_list, 2))
+# def goldbach(num) :
+#     prime_list = []
+#     for i in range(2, num-1):
+#         if is_prime(i) :
+#             if i+i == num :
+#                 prime_list.append(i)
+#                 prime_list.append(i)    
+#             else :
+#                 prime_list.append(i)
+#     num_list = list(combinations(prime_list, 2))
     
-    res = 10000
-    res_nums = []
-    for two_num in num_list :
-        if sum(two_num) == num:
-            min_diff = abs(two_num[0] - two_num[1])
-            if min_diff < res :
-                res = min_diff
-                res_nums = two_num
-    for i in res_nums :
-        print(i, end=" ")
-    print()
+#     res = 10000
+#     res_nums = []
+#     for two_num in num_list :
+#         if sum(two_num) == num:
+#             min_diff = abs(two_num[0] - two_num[1])
+#             if min_diff < res :
+#                 res = min_diff
+#                 res_nums = two_num
+#     for i in res_nums :
+#         print(i, end=" ")
+#     print()
 
 
+# def is_prime(num) :
+#     for i in range(2, num) :
+#         if num % i == 0 :
+#             return False
+#     return True
+
+
+# N = int(input())
+
+# for _ in range(N) :
+#     num = int(input())
+#     goldbach(num)
+
+
+# 소수 리스트 만들기
 def is_prime(num) :
     for i in range(2, num) :
         if num % i == 0 :
             return False
     return True
 
+prime_list = []
+for num in range(2, 10001):
+    if is_prime(num):
+        prime_list.append(num)
 
+
+# 골드 바흐 
 N = int(input())
 
 for _ in range(N) :
-    num = int(input())
-    goldbach(num)
-
+    even_num = int(input())
+    half_even_num = even_num//2
+    for num in range(half_even_num, 1, -1):
+        if (even_num-num in prime_list) and (num in prime_list) :
+            print(num, even_num-num)
+            break
