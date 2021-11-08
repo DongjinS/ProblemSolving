@@ -22,18 +22,22 @@ def put(n:int) -> None:
 def set(i:int, n:int, cnt:list)->None:
     #i열의 알맞은 위치에 퀸을 배치
     for j in range(n):
+        #flag_b는 대각선 좌표의 합이 같을때, flag_c는 대각선 좌표의 차가 같을때 - n-1 궅이 안 더해줘도 됨
         if (    not flag_a[j]
             and not flag_b[i+j]
-            and not flag_c[i-j+n-1]):
+            and not flag_c[i-j]):
             pos[i] = j
             if i == n-1:
                 #put(n)
-                #print(pos)
+                print(pos)
                 cnt.append(pos)
             else:
-                flag_a[j] = flag_b[i+j] = flag_c[i-j+n-1] = True
+                #flag_c[i-j+n-1] 안해줘고 그냥 i-j해줘도 똑같음!
+                flag_a[j] = flag_b[i+j] = flag_c[i-j] = True
+                print(flag_c)
                 set(i+1, n, cnt)
-                flag_a[j] = flag_b[i+j] = flag_c[i-j+n-1] = False
+                flag_a[j] = flag_b[i+j] = flag_c[i-j] = False
+                print(flag_c)
 
 
 
