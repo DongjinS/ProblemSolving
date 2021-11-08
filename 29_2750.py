@@ -32,7 +32,7 @@ def bubble_2(input_list: list):
     while k < L - 1:
         # 한번도 바꿀일 없으면 = 이미 정렬되어 있으면 바로 끝나도록 last = L - 1
         last = L - 1
-        for j in range(n - 1, k , -1):
+        for j in range(L - 1, k , -1):
             if input_list[j] < input_list[j-1]:
                 cnt+=1
                 print(f'비교!{cnt}')
@@ -65,6 +65,6 @@ input_list = []
 for i in range(n):
     input_list.append(int(input()))
 
-#bubble_1(input_list)
-#bubble_2(input_list)
-MyOwn(input_list)
+bubble_1(input_list)
+bubble_2(input_list)
+#MyOwn(input_list)
