@@ -19,24 +19,37 @@
         - 근데 왜 틀려 - 출력 방식 문제: 입력이 20일 때 출력이 없었음
 
 """
-def move(no: int, x:int, y:int):
+def move(no: int, x:int, y:int, cnt:int, path_list=[]):
+    #과정도 저장해서 출력해주려면 return으로 과정 배열 받고 횟수 int 받고 하면 너무 복잡해짐...ㅠㅠ
+    if no==1:
+        #맨 위 원반 움직임 더함 // 재귀 끝에서 +1
+        print(f'{x} {y}') 
+        path_list.append([x,y])
+        return cnt + 1
+    
     if no>1:
-        move(no-1,x,6-x-y)
+        cnt = move(no-1,x,6-x-y, cnt)
 
     print(f'{x} {y}') 
+    path_list.append([x,y])
+    # 맨위 원반 제외한 원반(가상 그룹(e.g. 총 3개일때 2개)의 바닥 원반)의 움직임 더함 // 재귀 나오면서 +1
+    cnt += 1
     
     if no>1: 
-        move(no-1,6-x-y,y)
+        cnt = move(no-1,6-x-y,y, cnt)
     
+    print(path_list)
+    return cnt
 
 N = int(input())
+cnt = 0
 #횟수 출력
 if N > 20:
     print(2**N - 1)
 #이동과정 출력
 if N <= 20:
     print(2**N - 1)
-    move(N,1,3)
+    print(move(N,1,3,cnt))
 
 '''
 다르게 푸는 방식..;;
