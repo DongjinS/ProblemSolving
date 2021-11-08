@@ -14,6 +14,7 @@ N = int(input())
 
 num_list = list(map(int, input().split()))
 permutations_list = list(permutations(num_list, N))
+print(permutations_list)
 
 result = 0
 for i in range(len(permutations_list)):

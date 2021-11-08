@@ -26,6 +26,5 @@ word_list.sort()
 word_list.sort(key=len)
 print(word_list)
 
-
 for i in word_list:
     print(i)

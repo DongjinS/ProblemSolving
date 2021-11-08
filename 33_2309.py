@@ -23,6 +23,7 @@ for i in range(9) :
 dwarf_sum = sum(dwarf_list)
 number_of_case = list(combinations(dwarf_list, 7))
 print(number_of_case)
+
 for case in number_of_case :
     if sum(case) == 100 :
         result = list(case)
