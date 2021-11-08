@@ -19,6 +19,6 @@ for num in range(1, N+1) :
     else :
         num_list = list(map(int, str(num)))
         if num_list[0] - num_list[1] == num_list[1] - num_list[2] :
-            hansu +=1
+            hansu += 1
 
 print(hansu)

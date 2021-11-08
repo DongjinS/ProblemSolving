@@ -59,6 +59,9 @@
 
 
 # 소수 리스트 만들기
+from typing import get_origin
+
+
 def is_prime(num) :
     for i in range(2, num) :
         if num % i == 0 :
@@ -81,3 +84,4 @@ for _ in range(N) :
         if (even_num-num in prime_list) and (num in prime_list) :
             print(num, even_num-num)
             break
+

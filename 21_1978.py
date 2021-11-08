@@ -19,7 +19,7 @@ def prime_num(num:int) -> bool :
 count = 0
 
 for i in num_list :
-    if i == 1 :
+    if i == 1 or i % 2 == 0 :
         pass
     elif prime_num(i):
         count += 1
