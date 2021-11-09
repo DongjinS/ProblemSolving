@@ -19,7 +19,7 @@ def put(n:int) -> None:
         print(f'{pos[i]:2}', end='')
     print()
     
-def set(i:int, n:int, cnt:list)->None:
+def set(i:int, n:int, cnt=0)->int:
     #i열의 알맞은 위치에 퀸을 배치
     for j in range(n):
         #flag_b는 대각선 좌표의 합이 같을때, flag_c는 대각선 좌표의 차가 같을때 - n-1 궅이 안 더해줘도 됨
@@ -29,16 +29,17 @@ def set(i:int, n:int, cnt:list)->None:
             pos[i] = j
             if i == n-1:
                 #put(n)
-                print(pos)
-                cnt.append(pos)
+                #print(f'pos : {pos}')
+                cnt += 1
+                return cnt
             else:
                 #flag_c[i-j+n-1] 안해줘고 그냥 i-j해줘도 똑같음!
-                flag_a[j] = flag_b[i+j] = flag_c[i-j] = True
-                print(flag_c)
-                set(i+1, n, cnt)
-                flag_a[j] = flag_b[i+j] = flag_c[i-j] = False
-                print(flag_c)
-
+                flag_a[j] = flag_b[i+j] = flag_c[i-j] = 1
+                #print(f'flag_c : {flag_c}')
+                cnt = set(i+1, n, cnt)
+                flag_a[j] = flag_b[i+j] = flag_c[i-j] = 0
+                #print(f'flag_c : {flag_c}')
+    return cnt
 
 
 
@@ -46,9 +47,9 @@ n = int(input())
 cnt = []
 
 pos = [0] * n
-flag_a = [False] * n
-flag_b = [False] * ((n*2)-1)
-flag_c = [False] * ((n*2)-1)
+flag_a = [0] * n
+flag_b = [0] * ((n*2)-1)
+flag_c = [0] * ((n*2)-1)
 
-set(0, n, cnt)
-print(len(cnt))
+print(set(0, n))
+# print(len(cnt))
