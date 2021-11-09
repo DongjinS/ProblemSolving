@@ -1,4 +1,6 @@
 # 36	2468	상	완전 탐색	안전 영역
+# 참고
+# https://dojinkimm.github.io/problem_solving/2019/11/15/boj-2468-safezone.html
 '''
 입력
 첫째 줄에는 어떤 지역을 나타내는 2차원 배열의 행과 열의 개수를 나타내는 수 N이 입력된다.
