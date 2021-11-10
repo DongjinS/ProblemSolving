@@ -44,8 +44,39 @@ def Zfinder(n,x:int,y:int):
     print(total_path)
 
 #재귀로도 짜보기,,!
-def RecursiveZfinder(n:int,x:int,y:int):
-    return
+def RecursiveZfinder(n:int,x:int,y:int)->int:
+    total_path=0
+    if n<1:
+        return 0
+    cp = (2**n/2)
+    #1사분면
+    if x<cp and y<cp:
+        #1사분면은 경로 추가할 필요 없음
+        print("1")
+        total_path = RecursiveZfinder(n-1,x,y)
+        total_path+=0
+    #2사분면
+    elif x<cp and y>=cp:
+        print("2")
+        total_path = RecursiveZfinder(n-1,x,y-cp)
+        total_path+=(2**(n-1))**2
+        
+    #3사분면
+    elif x>=cp and y<cp:
+        print("3")
+        total_path = RecursiveZfinder(n-1,x-cp,y)
+        total_path+=((2**(n-1))**2)*2
+        
+    #4사분면
+    elif x>=cp and y>=cp:
+        print("4")
+        total_path = RecursiveZfinder(n-1,x-cp,y-cp)
+        total_path+=((2**(n-1))**2)*3
+        
+    
+    print(f'total_path: {total_path}')
+    return total_path
+    
 
 input_list = [int(x) for x in input().split()]
 n = input_list[0]
@@ -53,4 +84,5 @@ n = input_list[0]
 x = input_list[1]
 #col - 열 위치
 y = input_list[2]
-Zfinder(n,x,y)
+# Zfinder(n,x,y)
+print(RecursiveZfinder(n,x,y))
