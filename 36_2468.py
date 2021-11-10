@@ -14,36 +14,32 @@
 import sys
 sys.setrecursionlimit(100000)
 
-
 N = int(input())
+height_info = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+print(height_info)
 
-# 지역 별 높이 리스트 만들기
-height_list = []
-for _ in range(N):
-    height_list.append(list(map(int, sys.stdin.readline().split())))
+def adj_area(x, y, height):
+    visited_area[x][y] = True
 
-
-def dfs(x, y, z):
-    visited_list[x][y] = True
-    for dx, dy in (-1, 0), (1, 0), (0, -1), (0, 1) :
-        nx, ny = x + dx, y + dy
-        if 0 <= nx < N and 0 <= ny < N and not visited_list[nx][ny] and height_list[nx][ny] > z:
-            dfs(nx, ny, z)
+    for dir_x, dir_y in (-1, 0), (1, 0), (0, -1), (0, 1) :
+        new_x, new_y = x + dir_x, y + dir_y
+        if 0 <= new_x < N and 0 <= new_y < N and not visited_area[new_x][new_y] and height_info[new_x][new_y] > height:
+            adj_area(new_x, new_y, height)
 
 result = 0
-for height in range(max(max(height_list))):
-    # 방문 지역 리스트 만들기
-    visited_list = [[False] * N for _ in range(N)]
+for height in range(1, max(max(height_info))):
+    print(height)
+    visited_area = [[False] * N for _ in range(N)]
+    print(visited_area)
+    print
 
     safe_area = 0
-
     for i in range(N):
         for j in range(N):
-            if not visited_list[i][j] and height_list[i][j] > height:
+            if not visited_area[i][j] and height_info[i][j] > height:
                 safe_area += 1
-                dfs(i, j, height)
-                
-                
+                adj_area(i, j , height)
+    
     result = max(result, safe_area)
 
 print(result)
